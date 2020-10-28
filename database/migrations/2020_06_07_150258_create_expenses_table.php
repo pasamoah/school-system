@@ -1,0 +1,39 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateExpensesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('expenses', function (Blueprint $table) {
+            $table->id();
+            $table->string('expense_name');
+            $table->string('expense_purchased_from');
+            $table->string('expense_purchased_date');
+            $table->string('expense_purchased_by');
+            $table->string('expense_amount');
+            $table->string('expense_paid_by');
+            $table->string('expense_status');
+            $table->string('expense_file');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('expenses');
+    }
+}
